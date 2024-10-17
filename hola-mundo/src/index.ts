@@ -77,3 +77,34 @@ const objeto: Persona = {
 }
 
 const arr: Persona[] = []
+
+const fn: (a: number) => string = (edad: number) => {
+    if (edad > 17)
+        return 'puedes ingresar'
+    return 'no puedes ingresar'
+}
+
+function validaEdad(edad: number, msg: string = 'Juanga feliz'): string {
+    if (edad > 17)
+        return `puedes ingresar ${msg}`
+
+    return 'no puedes pasar'
+}
+
+validaEdad(18, 'chanchito feliz')
+
+// tipo NEVER en las funciones
+// Se utiliza cuando una funcion nunca va a alcanzar un punto en el que vaya
+// a retornar algo, se utilizan cuando van a lanzar excepciones las funciones
+
+function ErrorUsuario(): never{
+    throw new Error('error de usuario')
+}
+
+// UNION TYPE:
+// Nos referimos a los union type es cuadno podemos utilizar mas de un solo tipo para 
+// poder referirnos a una variable
+
+let puntaje: number | string = 98
+
+puntaje = 'hola mundo'
