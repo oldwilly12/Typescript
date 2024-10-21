@@ -1,96 +1,36 @@
 "use strict";
-let mensaje = "Hola Mundo";
-mensaje = "Chanchito feliz";
-mensaje = "chao mundo ";
-console.log(mensaje);
-console.log(typeof []);
-let extincionDinosaurios = 7600000;
-let dinosaurioFavorito = "T-rex";
-let extintos = true;
-function chanchitoFeliz(config) {
-    return config;
-}
-let animales = ['Chanchito', 'Feliz', 'Felipe'];
-let nums = [1, 2, 3];
-let checks = [];
-let nums2 = [];
-let tupla = [1, ['Chanchito feliz', 'Chanchito felipe']];
-const chica = 's';
-const mediana = 'm';
-const grande = 'l';
-const extragrande = 'xl';
-var Talla;
-(function (Talla) {
-    Talla["Chica"] = "s";
-    Talla["Mediana"] = "m";
-    Talla["Grande"] = "l";
-    Talla["ExtraGrande"] = "xl";
-})(Talla || (Talla = {}));
-const variable1 = Talla.Grande;
-console.log(variable1);
-const estado = 2;
-const objeto = {
-    id: 1,
-    nombre: 'Hola Mundo',
-    talla: Talla.Mediana,
-    direccion: {
-        numero: 1,
-        calle: 'Siempre viva',
-        pais: 'Chanchitolandia'
+class Personaje {
+    constructor(id, name, nivel, _hp) {
+        this.id = id;
+        this.name = name;
+        this.nivel = nivel;
+        this._hp = _hp;
     }
-};
-const arr = [];
-const fn = (edad) => {
-    if (edad > 17)
-        return 'puedes ingresar';
-    return 'no puedes ingresar';
-};
-function validaEdad(edad, msg = 'Juanga feliz') {
-    if (edad > 17)
-        return `puedes ingresar ${msg}`;
-    return 'no puedes pasar';
-}
-validaEdad(18, 'chanchito feliz');
-function ErrorUsuario() {
-    throw new Error('error de usuario');
-}
-let puntaje = 98;
-puntaje = 'hola mundo';
-let animal = { id: 1, estado: "", name: '' };
-function sumaDos(n) {
-    if (typeof n === 'number') {
-        return n + 2;
+    subirNivel() {
+        this.nivel = this.nivel + 1;
+        return this.nivel;
     }
-    return parseInt(n) + 2;
-}
-sumaDos(2);
-const product = {
-    created_at: '',
-    modified_at: '',
-    name: '',
-};
-const nDeFibo = 5;
-function toNumber(s) {
-    if (!s) {
-        return 0;
+    static agregarPersonaje() {
+        Personaje.equipo++;
     }
-    return parseInt(s);
-}
-const n = toNumber(null);
-function getUser(id) {
-    if (id < 0) {
-        return null;
+    cambiarHP(cantidad) {
+        this._hp = this._hp + cantidad;
+        return this._hp;
     }
-    return {
-        id: 1,
-        name: 'Felipe',
-        created_at: new Date()
-    };
+    get hp() {
+        return this._hp;
+    }
+    set hp(cantidad) {
+        this._hp = this._hp + cantidad;
+    }
+    static getEquipo() {
+        return Personaje.equipo;
+    }
 }
-const user = getUser(1);
-console.log('Usuario', user === null || user === void 0 ? void 0 : user.created_at);
-const arr1 = null;
-arr1 === null || arr1 === void 0 ? void 0 : arr1[0];
-const fn5 = null;
-fn5 === null || fn5 === void 0 ? void 0 : fn5();
+Personaje.equipo = 1;
+const personaje = new Personaje(1, 'Nicolas', 1, 100);
+personaje.cambiarHP(-10);
+const personaje1 = new Personaje(2, 'Chanchito', 1, 120);
+Personaje.agregarPersonaje();
+console.log(Personaje.getEquipo());
 //# sourceMappingURL=index.js.map
