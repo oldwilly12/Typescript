@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <UserForm/>
+        <UserForm handleSubmit={user => {console.log(user)}}/>
       </div>
     </>
   )
