@@ -1,3 +1,3 @@
-import { holamundo } from './saludos'
+// import { holamundo } from './saludos'
 
-holamundo('chanchito feliz')
+// holamundo('chanchito feliz')
