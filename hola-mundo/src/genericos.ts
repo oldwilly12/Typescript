@@ -125,3 +125,61 @@ class EstadoUsuarios extends Estado<Usuario>{
     }
 }
 //fijo
+
+//----------------------------------------------------------------
+// OPERADOR KEYOF
+
+type Calendar = {
+    id: number,
+    fuente: string,
+    dueno: string,
+}
+
+const calendar: Calendar = { id: 1, fuente: 'Google', dueno: 'yo'}
+
+function getProp<T>(objeto: T, property: keyof T): unknown {
+    return objeto[property]
+}
+
+getProp<Calendar>(calendar, 'id')
+getProp<Calendar>(calendar, 'fuente')
+
+//-------------------------------------------------------------------------------
+// UTILITY TYPES
+
+type Punto = {
+    x: number,
+    t: number,
+    desc?: String,
+}
+
+type PuntoOpcional = Partial<Punto>
+type PuntoRequerido = Required<Punto>
+
+const keyVal: Record<string, number> = {
+    'Soy un sring': 42
+}
+// este es para representar que es lo mismo que el de arriba
+type kv = {[key:string]: number}
+
+/*
+const p: Omit<Punto, 'desc' | 'y'> = {
+    x: 1,
+    // y: 2 valor que omitira
+}
+    */
+
+/*
+const p1: Pick<Punto, 'x' | 'y'> = {
+    x: 1,
+    y: 2,
+}
+    */
+
+/*
+const readOnlyP: Readonly<Punto> = {
+    x: 1,
+    y: 3,
+    desc: 'soy una descripcion'
+}
+    */
