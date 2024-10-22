@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.8",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
+  },
+  "scripts": {
+    "start": "nodemon ./index.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
