@@ -2,14 +2,14 @@ import { ChangeEventHandler, MouseEventHandler, useState } from "react"
 import Input from "../components/Input"
 import Button from "../components/Button"
 
-type UserFormState = {
+export type UserFormState = {
     name:string,
-    lastname: string,
+    username: string,
 }
 
 const InitialValue: UserFormState = {
     name: '',
-    lastname: '',
+    username: '',
 }
 
 interface UserFormProps {
@@ -30,8 +30,8 @@ export default function UserForm({ handleSubmit } : UserFormProps) {
     return (
         <>
             <Input value = {form.name} name='name' placeholder = 'Nombre' handleChange={handleChange} />
-            <Input value = {form.lastname} name='lastname' placeholder = 'Apellido' handleChange={handleChange} />
-            <Button handleClick={handleClick}>Hola Mundo</Button>
+            <Input value = {form.username} name='username' placeholder = 'Usuario' handleChange={handleChange} />
+            <Button handleClick={handleClick}>Enviar</Button>
         </>
     )
 }
